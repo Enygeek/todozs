@@ -8,9 +8,8 @@ import React, { useEffect, useState } from 'react';
 const TagsList = () => {
 
     const initial = {
-        name: '',
-        pseudo : '',
-        email : ''
+        libelle: '',
+        des : ''
     }
 
     let mounted = false
