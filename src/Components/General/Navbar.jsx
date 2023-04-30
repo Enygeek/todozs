@@ -68,19 +68,13 @@ const Navbar = () => {
                             </div>
                         </div>
 
-                        <div className="dropdown d-none d-lg-inline-block ml-1">
-                            <button type="button" className="btn header-item noti-icon waves-effect"
-                                    data-toggle="fullscreen">
-                                <i className="mdi mdi-fullscreen"></i>
-                            </button>
-                        </div>
 
                         <div className="dropdown d-inline-block">
                             <button type="button" className="btn header-item waves-effect"
                                     id="page-header-user-dropdown"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img className="rounded-circle header-profile-user" src="../assets/images/users/avatar-1.jpg"  alt="Header Avatar"/>
-                                <span className="d-none d-sm-inline-block ml-1">Enoch</span>
+                                <span className="d-none d-sm-inline-block text-white ml-1">Enoch</span>
                                 <i className="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                             </button>
                             <div className="dropdown-menu dropdown-menu-right">
