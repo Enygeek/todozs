@@ -1,6 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const TagAdd = () => {
+    const initial = {
+        libelle: '',
+        des: ''
+    }
+
+    let mounted = false
+
+    const [data, setdata] = useState({... initial})
+    const [loading, setLoading] = useState(true)
+    const [list, setList] = useState([])
+
+    const getTag = () => {
+
+        fetch('http://localhost:8080/tag/', 
+        {method: 'GET'})
+
+        .then(response => response.json())
+
+        .then(response => {
+
+        setList(response)
+
+        setLoading(false)
+
+        })
+        .catch(err => console.log('tag', err))
+    }
+
+    const addTag = e =>{
+        fetch('http://localhost:8080/tag/', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(() => {
+        getTag();
+        setdata({...initial});
+    })
+    .catch(err => console.log('add', err));
+    }
+
+    useEffect(() => {
+        if (!mounted) getTag();
+        return () => mounted = true
+    }, []);
+
     return (
         <>
             {/* Form - Ajouter un utilisateur */}
@@ -13,7 +61,7 @@ const TagAdd = () => {
                         </div>
 
 
-                        <form className="needs-validation" noValidate>
+                        <form className="needs-validation" noValidate action="#" onSubmit={e => addTag(e)}>
 
                             <div className="col-md-12">
 
@@ -21,12 +69,15 @@ const TagAdd = () => {
 
                                     <div className="col-md-12 mb-2">
                                         <label htmlFor="subject">Libellé</label>
-                                        <input type="text" id="subject" name="" className="form-control" placeholder="Nouveau tag"
-                                               required/>
+                                        <input type="text" id="subject" value={data.libelle} className="form-control" placeholder="Nouveau tag"
+                                            onChange={e => setdata({...data,libelle: e.target.value})} required/>
                                     </div>
 
-                                    <div className="col-md-12 mb-2"><label
-                                        htmlFor="description">Description</label><textarea name="description" className="form-control" placeholder="Description du tag" rows="2" required=""></textarea></div>
+                                    <div className="col-md-12 mb-2">
+                                        <label htmlFor="description">Description</label>
+                                        <input name="description" className="form-control" value={data.des} placeholder="Description du tag" rows="2"
+                                         onChange={e => setdata({...data,des: e.target.value})} required></input>
+                                    </div>
 
                                 </div>
 
