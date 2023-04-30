@@ -33,6 +33,7 @@ const TagsManagement = () => {
                         </div>
                         {/* end page title */}
 
+
                         <div className="row">
                             <div className="col-12">
                                 <div className="card text-center p-2 pt-3">

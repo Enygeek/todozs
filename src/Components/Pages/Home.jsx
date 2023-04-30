@@ -43,7 +43,7 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="media">
                                             <div className="media-body text-center">
-                                                <h5 className="font-size-14">Tickets actives</h5>
+                                                <h5 className="font-size-14 text-uppercase">Tickets</h5>
                                             </div>
                                         </div>
                                         <h2 className="m-0 align-self-center text-center text-danger">183</h2>
@@ -56,7 +56,7 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="media">
                                             <div className="media-body text-center">
-                                                <h5 className="font-size-14">Tickets validés</h5>
+                                                <h5 className="font-size-14 text-uppercase">Utilisateur</h5>
                                             </div>
                                         </div>
                                         <h3 className="m-0 align-self-center text-center text-success">08</h3>
@@ -69,7 +69,7 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="media">
                                             <div className="media-body">
-                                                <h5 className="font-size-14 text-center">Commentaires</h5>
+                                                <h5 className="font-size-14 text-center text-uppercase">Tags</h5>
                                             </div>
                                         </div>
                                         <h3 className="m-0 align-self-center text-center text-warning">03</h3>
@@ -82,7 +82,7 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="media">
                                             <div className="media-body">
-                                                <h5 className="font-size-14 text-center">Utilisateurs</h5>
+                                                <h5 className="font-size-14 text-center text-uppercase">Commentaires</h5>
                                             </div>
                                         </div>
                                         <h3 className="m-0 align-self-center text-center text-info">28</h3>
@@ -153,8 +153,11 @@ const Home = () => {
                             <div className="col-xl-4">
                                 <div className="card">
                                     <div className="card-body">
+                                        <button type="button" className="btn btn-primary btn-sm float-right waves-effect waves-light" data-toggle="modal" data-target=".AddUserModal">
+                                            <i className="mdi mdi-plus-circle"></i>
+                                        </button>
 
-                                        <h4 className="header-title">Utilisateurs</h4>
+                                        <h4 className="header-title">Utilisateurs [ support technique ]</h4>
                                         <p className="card-title-desc"><hr/></p>
 
                                         <div className="row">

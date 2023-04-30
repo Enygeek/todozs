@@ -9,7 +9,7 @@ const TicketList = () => {
     return (
         <>
             {/* Liste des utilisateurs */}
-            <div className="col-8">
+            <div className="col-12">
                 <div className="card">
                     <div className="card-body">
                         <div className={"font-size-16 text-center pl-1 mb-3"}>
@@ -22,8 +22,11 @@ const TicketList = () => {
                             <thead>
                             <tr>
                                 <th>N°</th>
-                                <th>Libellé</th>
+                                <th>Sujet</th>
                                 <th>Description</th>
+                                <th>Crée le</th>
+                                <th>Assigné à</th>
+                                <th>Statut</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -34,6 +37,9 @@ const TicketList = () => {
                                 <td className="pt-4">1</td>
                                 <td className="pt-4">Management</td>
                                 <td className="pt-4">Tag relative au managemnt</td>
+                                <td className="pt-4">30.04.2023</td>
+                                <td className="pt-4">Enygeek</td>
+                                <td className="pt-4"><span className={"badge badge-warning font-size-12"}>En cours</span></td>
                                 <td className="pt-4">
                                     <button type="button"
                                             className="btn btn-outline-warning btn-sm waves-effect pt-1"
