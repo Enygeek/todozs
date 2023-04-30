@@ -14,9 +14,6 @@ const UserList = () => {
     const [loading, setLoading] = useState(true)
     const [list, setList] = useState([])
     const [erreur, setErreur] = useState(false)
-    const handleCancel = () => {
-        setdata({...initial})
-    };
 
     const getUsers = () => {
 

@@ -1,6 +1,51 @@
 import React from 'react';
 
 const TicketAdd = () => {
+
+    const initial = {
+        sujet: '',
+        description : '',
+        statut : ''
+    }
+
+    let mounted = false
+
+    const [data, setdata] = useState({... initial})
+    const [loading, setLoading] = useState(true)
+    const [list, setList] = useState([])
+
+    const getTicket = () => {
+        fetch('http://localhost:8080/ticket/', 
+        {method: 'GET'})
+        .then(response => response.json())
+        .then(response => {
+        setList(response)
+        setLoading(false)
+        })
+        .catch(err => console.log('user', err))
+    }
+
+    const addTicket = e =>{
+        e.prevenDefault();
+        fetch('http://localhost:8080/ticket/', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(() => {
+        getTicket();
+        setdata({...initial});
+    })
+    .catch(err => console.log('add', err));
+    }
+
+    useEffect(() => {
+        if (!mounted) getTicket();
+        return () => mounted = true
+    }, []);
+
     return (
         <>
             {/* Form - Ajouter un utilisateur */}
@@ -23,21 +68,21 @@ const TicketAdd = () => {
                                 <div id="collapseOne" className="collapse"
                                      aria-labelledby="headingOne" data-parent="#accordion">
                                     <div className="card-body">
-                                        <form className="needs-validation" noValidate>
+                                        <form className="needs-validation" noValidate action="#" onSubmit={e => addTicket(e)}>
 
                                             <div className="col-md-12">
                                                 <div className="row">
 
                                                     <div className="col-md-12 mb-2">
                                                         <label htmlFor="subject">Sujet</label>
-                                                        <input type="text" id="subject" name="" className="form-control" placeholder="Nouveau sujet"
-                                                               required/>
+                                                        <input type="text" id="subject" value={data.sujet} className="form-control" placeholder="Nouveau sujet"
+                                                            onChange={e => setdata({...data,sujet: e.target.value})} required/>
                                                     </div>
 
                                                     <div className="col-md-12 mb-2">
                                                         <label htmlFor="description">Description</label>
-                                                        <textarea name="description" className="form-control" placeholder="Description du ticket" rows={1}
-                                                                  required/>
+                                                        <textarea name="description" value={data.description} className="form-control" placeholder="Description du ticket" rows={1}
+                                                                onChange={e => setdata({...data,description: e.target.value})} required/>
                                                     </div>
 
                                                     <div className="col-md-4 mb-3">
