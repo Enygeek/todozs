@@ -48,7 +48,7 @@ const TicketAdd = () => {
 
     return (
         <>
-            {/* Form - Ajouter un utilisateur */}
+            {/* Form - Ajouter un ticket */}
             <div className="col-12">
                 <div className="card">
                     <div className="card-body">
@@ -59,8 +59,8 @@ const TicketAdd = () => {
                                         <a data-toggle="collapse" data-parent="#accordion"
                                            href="#collapseOne" aria-expanded="true"
                                            aria-controls="collapseOne" className="btn btn-dark">
-                                            <i className={"mdi mdi-plus-circle-outline mr-2"}></i>
-                                            <span>Ajoute un utilisateurs </span>
+                                            <i className={"mdi mdi-plus-circle-outline text-sucess mr-2"}></i>
+                                            <span>Ajoute un ticket </span>
                                         </a>
                                     </h5>
                                 </div>
