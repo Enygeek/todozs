@@ -1,6 +1,10 @@
 import React from 'react';
-
-const AddUser = () => {
+/**
+ * @Description
+ *     Composant retournant le formulaire d'ajout d'un utilisateur membre du support technique
+ *     sous la forme d'un modal.
+ * */
+const UserStAdd = () => {
     return (
         <>
             {/* Un utilisateur */}
@@ -10,7 +14,7 @@ const AddUser = () => {
                         <div className="modal-header">
                             <h5 className="modal-title text-center mt-0" id="myLargeModalLabel">
                                 <i className="fa fa-plus-circle text-primary mr-1"></i>
-                                <span>Ajouter un nouvel [ <span className="text-primary">Utilisateur</span> ]</span>
+                                <span>Ajouter un nouvel [ <span className="text-primary">Utilisateur - ST</span> ]</span>
                             </h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -25,17 +29,17 @@ const AddUser = () => {
 
                                             <div className="col-md-12">
 
-                                                <div className="card">
-                                                    <div className="card-body">
+                                                <div className="">
+                                                    <div className="">
                                                         <div className="row">
 
-                                                            <div className="col-md-12 mb-2">
+                                                            <div className="col-md-6 mb-2">
                                                                 <label htmlFor="subject">Nom</label>
                                                                 <input type="text" id="subject" name="" className="form-control" placeholder="Nom de l'utilisateur"
                                                                        required/>
                                                             </div>
 
-                                                            <div className="col-md-12 mb-2">
+                                                            <div className="col-md-6 mb-2">
                                                                 <label htmlFor="subject">Pseudo</label>
                                                                 <input type="text" id="subject" name="" className="form-control" placeholder="Pseudonyme"
                                                                        required/>
@@ -46,19 +50,6 @@ const AddUser = () => {
                                                                 <input type="email" id="subject" name="" className="form-control" placeholder="...@todozs.com"
                                                                        required/>
                                                             </div>
-
-                                                            <div className="col-md-12 mb-3">
-                                                                <label htmlFor="">Rôle</label>
-                                                                <select className="custom-select" required>
-                                                                    <option value="" disabled>Choisir un exécutant</option>
-                                                                    <option value="1">Support technique</option>
-                                                                    <option value="2">Simple</option>
-                                                                </select>
-                                                                <div className="invalid-feedback">Example invalid custom
-                                                                    select feedback
-                                                                </div>
-                                                            </div>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -67,7 +58,7 @@ const AddUser = () => {
 
                                             <div className="row">
                                                 <div className="col-md-12">
-                                                    <div className="card">
+                                                    <div className="">
                                                         <div className="card-body text-center">
 
                                                             <button className="btn btn-danger btn-sm font-size-16"
@@ -78,11 +69,11 @@ const AddUser = () => {
                                                                 <i className="mdi mdi-delete-outline"></i>
                                                             </button>
 
-                                                            <button className="btn btn-primary btn-sm font-size-16 ml-2"
+                                                            <button className="btn btn-success btn-sm font-size-16 ml-2"
                                                                     type="submit" data-toggle="tooltip"
                                                                     data-placement="top"
                                                                     data-original-title="Enregistrer la catégorie">
-                                                                <i className="mdi mdi-send-check mr-1"></i>
+                                                                <i className="fa fa-check mr-1"></i>
                                                                 <span className="mr-1">| Enregistrer</span>
                                                             </button>
                                                         </div>
@@ -103,4 +94,4 @@ const AddUser = () => {
     )
 }
 
-export default AddUser;
+export default UserStAdd;
