@@ -32,7 +32,6 @@ const UserAdd = () => {
     }
 
     const addUsers = e =>{
-        e.prevenDefault();
         fetch('http://localhost:8080/user/', {
         method: 'POST',
         headers: {
