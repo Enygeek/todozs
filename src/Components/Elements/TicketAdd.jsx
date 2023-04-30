@@ -4,7 +4,7 @@ const TicketAdd = () => {
     return (
         <>
             {/* Form - Ajouter un utilisateur */}
-            <div className="col-5">
+            <div className="col-4">
                 <div className="card">
                     <div className="card-body">
                         <div className={"font-size-16 text-center pl-1 mb-3"}>

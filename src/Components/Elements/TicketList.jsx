@@ -9,7 +9,7 @@ const TicketList = () => {
     return (
         <>
             {/* Liste des utilisateurs */}
-            <div className="col-7">
+            <div className="col-8">
                 <div className="card">
                     <div className="card-body">
                         <div className={"font-size-16 text-center pl-1 mb-3"}>
