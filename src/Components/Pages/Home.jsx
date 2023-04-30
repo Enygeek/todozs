@@ -151,16 +151,54 @@ const Home = () => {
                             </div>
 
                             <div className="col-xl-4">
-                                <div className="card">
-                                    <div className="card-body">
-                                        <button type="button" className="btn btn-primary btn-sm float-right waves-effect waves-light" data-toggle="modal" data-target=".AddUserModal">
+                                <div className={"card"}>
+                                    <div className={"card-body"}>
+                                        <button type="button" className="btn btn-success btn-sm float-right waves-effect waves-light" data-toggle="modal" data-target=".AddUserModal">
                                             <i className="mdi mdi-plus-circle"></i>
                                         </button>
-
-                                        <h4 className="header-title">Utilisateurs [ support technique ]</h4>
-                                        <p className="card-title-desc"><hr/></p>
-
+                                        <h4 className="header-title text-uppercase">
+                                            <i className="fa fa-user mr-2"></i>
+                                            Support technique
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div className="card">
+                                    <div className="card-body">
                                         <div className="row">
+                                            <table
+                                                className="table table-striped table-hover table-borderless table-vcenter font-size-sm mb-0">
+                                                <thead>
+                                                <tr className="text-uppercase">
+                                                    <th className="font-w700">ID</th>
+                                                    <th className="font-w700">Name</th>
+                                                    <th className="font-w700 text-center">Pseudo</th>
+                                                    <th className="font-w700 text-center">Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span className="font-w600">#1</span>
+                                                        </td>
+                                                        <td className="font-w600">
+                                                            Lori Grant
+                                                        </td>
+                                                        <td className="d-none d-sm-table-cell text-center text-info">
+                                                            Codeur
+                                                        </td>
+                                                        <td className="text-center">
+                                                            <span className={"text-warning"} data-toggle="tooltip"
+                                                               data-placement="left" title="Edit">
+                                                                <i className="fa fa-fw fa-pencil-alt"/>
+                                                            </span>
+                                                            <span className={"text-danger ml-2"} data-toggle="tooltip"
+                                                                  data-placement="left" title="Edit">
+                                                                <i className="fa fa-trash-alt fa-pencil-alt"/>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
 
 
