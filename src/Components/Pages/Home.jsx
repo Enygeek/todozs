@@ -3,6 +3,7 @@ import Base from "../General/Base";
 import Footer from "../General/Footer";
 import Ticket from "../Elements/Ticket";
 import UserStAdd from "../Elements/UserStAdd";
+import {Link} from "react-router-dom";
 
 /**
  * @Description
@@ -98,9 +99,9 @@ const Home = () => {
                                 <div className="card">
                                     <div className="card-body">
 
-                                        <button type="button" className="btn btn-primary btn-sm float-right waves-effect waves-light" data-toggle="modal" data-target=".AddUserModal">
-                                            <i className="mdi mdi-plus-circle"></i> Ajouter
-                                        </button>
+                                        <Link to={"/TicketsManagement"} type="button" className="btn btn-primary btn-sm float-right waves-effect waves-light">
+                                            <i className="mdi mdi-plus-circle"></i>
+                                        </Link>
 
                                         <h4 className="header-title">Visualisatoin des tickets</h4>
                                         <p className="card-title-desc"></p>
