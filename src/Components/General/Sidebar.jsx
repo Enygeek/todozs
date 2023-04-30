@@ -2,6 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 
+/**
+ * @Description
+ *     Composant retournant la 'vertical sidebar' de l'application TodoZS.
+ * */
 const Sidebar = () => {
 
     {/*const {active} = props*/}
@@ -14,7 +18,7 @@ const Sidebar = () => {
                         <ul className="metismenu list-unstyled" id="side-menu">
                             {/* Tableau de bord */}
                             <li>
-                                <Link to="/Home" className="waves-effect">
+                                <Link to="/" className="waves-effect">
                                     <i className="mdi mdi-view-dashboard"></i>
                                     <span>Tableau de bord</span>
                                 </Link>
@@ -31,14 +35,6 @@ const Sidebar = () => {
                             </li>
 
                             <li className="menu-title">Tickets</li>
-                            <li>
-                                <Link to="/TicketsMangement" className="waves-effect">
-                                    <i className="mdi mdi-check-box-multiple-outline"></i>
-                                    <span className="badge badge-pill badge-warning float-right">3</span>
-                                    <span>Gestiond des tickets</span>
-                                </Link>
-                            </li>
-
                             <li>
                                 <Link to="/TagsManagement" className="waves-effect">
                                     <i className="mdi mdi-tag-multiple"></i>

@@ -2,29 +2,34 @@ import React from 'react';
 // @ts-ignore
 import {Link} from "react-router-dom";
 
+
+/**
+ * @Description
+ *     Composant retournant la navbar de l'application TodoZS
+ * */
 const Navbar = () => {
     return (
         <>
             <header id="page-topbar">
-                <div className="navbar-header">
+                <div className="navbar-header bg-dark">
                     <div className="d-flex">
                         {/* LOGO */}
                         <div className="navbar-brand-box bg-white">
                             <a href="index.html" className="logo logo-dark">
-                                <span className="logo-sm">
-                                    <img src="assets/images/icons/" alt="" height="50"/>
+                                <span className="logo-sm font-size-24">
+                                    Todo<span className={"text-danger"}>ZS</span>
                                 </span>
-                                <span className="logo-lg">
-                                    <img src="assets/images/" alt="" height="30"/>
+                                <span className="logo-lg font-size-24">
+                                    Todo<span className={"text-danger"}>ZS</span>
                                 </span>
                             </a>
 
                             <a href="index.html" className="logo logo-light">
-                                <span className="logo-sm">
-                                    <img src="assets/images/icons/" alt="" height="50"/>
+                                <span className="logo-sm font-size-24">
+                                    Todo <span className={"text-danger"}>ZS</span>
                                 </span>
-                                <span className="logo-lg">
-                                    <img src="assets/images/" alt="" height="30"/>
+                                <span className="logo-lg font-size-24">
+                                    Todo <span className={"text-danger"}>ZS</span>
                                 </span>
                             </a>
                         </div>
