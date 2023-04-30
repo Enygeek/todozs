@@ -43,7 +43,7 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="media">
                                             <div className="media-body text-center">
-                                                <h5 className="font-size-14">Tickets actives</h5>
+                                                <h5 className="font-size-14 text-uppercase">Tickets</h5>
                                             </div>
                                         </div>
                                         <h2 className="m-0 align-self-center text-center text-danger">183</h2>
@@ -56,7 +56,7 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="media">
                                             <div className="media-body text-center">
-                                                <h5 className="font-size-14">Tickets validés</h5>
+                                                <h5 className="font-size-14 text-uppercase">Utilisateur</h5>
                                             </div>
                                         </div>
                                         <h3 className="m-0 align-self-center text-center text-success">08</h3>
@@ -69,7 +69,7 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="media">
                                             <div className="media-body">
-                                                <h5 className="font-size-14 text-center">Commentaires</h5>
+                                                <h5 className="font-size-14 text-center text-uppercase">Tags</h5>
                                             </div>
                                         </div>
                                         <h3 className="m-0 align-self-center text-center text-warning">03</h3>
@@ -82,7 +82,7 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="media">
                                             <div className="media-body">
-                                                <h5 className="font-size-14 text-center">Utilisateurs</h5>
+                                                <h5 className="font-size-14 text-center text-uppercase">Commentaires</h5>
                                             </div>
                                         </div>
                                         <h3 className="m-0 align-self-center text-center text-info">28</h3>
@@ -151,13 +151,54 @@ const Home = () => {
                             </div>
 
                             <div className="col-xl-4">
+                                <div className={"card"}>
+                                    <div className={"card-body"}>
+                                        <button type="button" className="btn btn-success btn-sm float-right waves-effect waves-light" data-toggle="modal" data-target=".AddUserModal">
+                                            <i className="mdi mdi-plus-circle"></i>
+                                        </button>
+                                        <h4 className="header-title text-uppercase">
+                                            <i className="fa fa-user mr-2"></i>
+                                            Support technique
+                                        </h4>
+                                    </div>
+                                </div>
                                 <div className="card">
                                     <div className="card-body">
-
-                                        <h4 className="header-title">Utilisateurs</h4>
-                                        <p className="card-title-desc"><hr/></p>
-
                                         <div className="row">
+                                            <table
+                                                className="table table-striped table-hover table-borderless table-vcenter font-size-sm mb-0">
+                                                <thead>
+                                                <tr className="text-uppercase">
+                                                    <th className="font-w700">ID</th>
+                                                    <th className="font-w700">Name</th>
+                                                    <th className="font-w700 text-center">Pseudo</th>
+                                                    <th className="font-w700 text-center">Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span className="font-w600">#1</span>
+                                                        </td>
+                                                        <td className="font-w600">
+                                                            Lori Grant
+                                                        </td>
+                                                        <td className="d-none d-sm-table-cell text-center text-info">
+                                                            Codeur
+                                                        </td>
+                                                        <td className="text-center">
+                                                            <span className={"text-warning"} data-toggle="tooltip"
+                                                               data-placement="left" title="Edit">
+                                                                <i className="fa fa-fw fa-pencil-alt"/>
+                                                            </span>
+                                                            <span className={"text-danger ml-2"} data-toggle="tooltip"
+                                                                  data-placement="left" title="Edit">
+                                                                <i className="fa fa-trash-alt fa-pencil-alt"/>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
 
 
