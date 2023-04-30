@@ -43,11 +43,10 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="media">
                                             <div className="media-body text-center">
-                                                <h5 className="font-size-14">Total Tâches</h5>
+                                                <h5 className="font-size-14">Tickets actives</h5>
                                             </div>
                                         </div>
-                                        <h2 className="m-0 align-self-center text-center">183</h2>
-                                        <p className="mb-0 mt-3 text-muted text-center"><span className="text-success">1.23 % <i className="mdi mdi-trending-up mr-1"></i></span>Comparé au mois précédent</p>
+                                        <h2 className="m-0 align-self-center text-center text-danger">183</h2>
                                     </div>
                                 </div>
                             </div>
@@ -57,11 +56,10 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="media">
                                             <div className="media-body text-center">
-                                                <h5 className="font-size-14">Tâches actives</h5>
+                                                <h5 className="font-size-14">Tickets validés</h5>
                                             </div>
                                         </div>
-                                        <h3 className="m-0 align-self-center text-center">08</h3>
-                                        <p className="mb-0 mt-3 text-muted text-center"><span className="text-success">2.73 % <i className="mdi mdi-trending-up mr-1"></i></span> Comparé au mois précédent</p>
+                                        <h3 className="m-0 align-self-center text-center text-success">08</h3>
                                     </div>
                                 </div>
                             </div>
@@ -71,11 +69,10 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="media">
                                             <div className="media-body">
-                                                <h5 className="font-size-14 text-center">Total d'utilisateurs</h5>
+                                                <h5 className="font-size-14 text-center">Commentaires</h5>
                                             </div>
                                         </div>
-                                        <h3 className="m-0 align-self-center text-center">153</h3>
-                                        <p className="mb-0 mt-3 text-muted text-center"><span className="text-danger">4.35 % <i className="mdi mdi-trending-down mr-1"></i></span>Comparé au mois précédent</p>
+                                        <h3 className="m-0 align-self-center text-center text-warning">03</h3>
                                     </div>
                                 </div>
                             </div>
@@ -85,11 +82,10 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="media">
                                             <div className="media-body">
-                                                <h5 className="font-size-14 text-center">Utilisateurs actifs</h5>
+                                                <h5 className="font-size-14 text-center">Utilisateurs</h5>
                                             </div>
                                         </div>
-                                        <h3 className="m-0 align-self-center text-center">28</h3>
-                                        <p className="mb-0 mt-3 text-muted text-center"><span className="text-danger">4.35 % <i className="mdi mdi-trending-down mr-1"></i></span>Comparé au mois précédent</p>
+                                        <h3 className="m-0 align-self-center text-center text-info">28</h3>
                                     </div>
                                 </div>
                             </div>
