@@ -14,32 +14,25 @@ const Navbar = () => {
                 <div className="navbar-header bg-dark">
                     <div className="d-flex">
                         {/* LOGO */}
-                        <div className="navbar-brand-box bg-white">
-                            <a href="index.html" className="logo logo-dark">
+                        <div className="navbar-brand-box">
+                            <a href="index.html" className="logo logo-dark text-uppercase">
                                 <span className="logo-sm font-size-24">
-                                    Todo<span className={"text-danger"}>ZS</span>
+                                    T o d o<span className={"text-warning"}> ZS</span>
                                 </span>
                                 <span className="logo-lg font-size-24">
-                                    Todo<span className={"text-danger"}>ZS</span>
+                                    T o d o<span className={"text-warning"}> ZS</span>
                                 </span>
                             </a>
 
-                            <a href="index.html" className="logo logo-light">
+                            <a href="index.html" className="logo logo-light text-uppercase">
                                 <span className="logo-sm font-size-24">
-                                    Todo <span className={"text-danger"}>ZS</span>
+                                    T o d o <span className={"text-warning"}> ZS</span>
                                 </span>
                                 <span className="logo-lg font-size-24">
-                                    Todo <span className={"text-danger"}>ZS</span>
+                                    T o d o <span className={"text-warning"}> ZS</span>
                                 </span>
                             </a>
                         </div>
-
-                        {/*
-                        <button type="button" className="btn btn-sm px-3 font-size-24 header-item waves-effect"
-                                id="vertical-menu-btn">
-                            <i className="mdi mdi-backburger"></i>
-                        </button>
-                        */}
 
                     </div>
 
