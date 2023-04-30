@@ -1,8 +1,8 @@
 import React from 'react';
 import Base from "../General/Base";
 import Footer from "../General/Footer";
-import AddTicket from "../Elements/AddTickets";
 import Ticket from "../Elements/Ticket";
+import UserStAdd from "../Elements/UserStAdd";
 
 /**
  * @Description
@@ -221,7 +221,7 @@ const Home = () => {
                 {/* ==========================
                             MODAL
                 =============================== */}
-                <AddTicket />
+                <UserStAdd />
 
 
 
