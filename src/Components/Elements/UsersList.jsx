@@ -77,10 +77,11 @@ const UserList = () => {
             <div className="col-7">
                 <div className="card">
                     <div className="card-body">
-                        <div className={"font-size-16 pl-1 mb-3"}>
-                            <i className={"dripicons-user-group mr-2"}></i>
-                            <span>Liste des utilisateurs</span>
+                        <div className={"font-size-16 text-center pl-1 mb-3"}>
+                            <i className={"dripicons-user mr-2"}></i>
+                            <span className={"text-uppercase"}>Liste des utilisateurs</span>
                         </div>
+
                         {
                                     loading ? <span>Chargement...</span> :
                         <table id="datatable-buttons"

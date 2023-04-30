@@ -63,6 +63,12 @@ const UserAdd = () => {
             <div className="col-5">
                 <div className="card">
                     <div className="card-body">
+
+                        <div className={"font-size-16 text-center pl-1 mb-3"}>
+                            <i className={"mdi mdi-plus-circle-outline mr-2"}></i>
+                            <span className={"text-uppercase"}>Ajouter un utilisateur</span>
+                        </div>
+
                         <form className="needs-validation" noValidate action="#" onSubmit={e => addUsers(e)}>
 
                             <div className="col-md-12">
