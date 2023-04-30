@@ -1,6 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const UserList = () => {
+
+    const initial = {
+        name: '',
+        pseudo : '',
+        email : ''
+    }
+
+    let mounted = false
+
+    const [data, setdata] = useState({... initial})
+    const [loading, setLoading] = useState(true)
+    const [list, setList] = useState([])
+
+    const getUsers = () => {
+
+        fetch('http://localhost:8080/user/', 
+        {method: 'GET'})
+
+        .then(response => response.json())
+
+        .then(response => {
+
+        setList(response)
+
+        setLoading(false)
+
+        })
+        .catch(err => console.log('user', err))
+    }
+
+    useEffect(() => {
+        if (!mounted) getUsers();
+        return () => mounted = true
+    }, []);
+
     return (
         <>
             {/* Liste des utilisateurs */}
@@ -11,25 +46,28 @@ const UserList = () => {
                             <i className={"dripicons-user-group mr-2"}></i>
                             <span>Liste des utilisateurs</span>
                         </div>
-
+                        {
+                                    loading ? <span>Chargement...</span> :
                         <table id="datatable-buttons"
                                className="table table-striped table-bordered dt-responsive nowrap tableZS">
                             <thead>
                             <tr>
+                                <th>N°</th>
                                 <th>Nom</th>
                                 <th>Pseudo</th>
                                 <th>E-mail</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
-
-
                             <tbody>
-                                <tr>
-                                    <td className="pt-4">Zabra</td>
-                                    <td className="pt-4">Enygeek</td>
-                                    <td className="pt-4">z@smm.com</td>
-                                    <td className="pt-4">
+                                {
+                                    list.map((item, cle) => (
+                                        <tr key={cle}>
+                                            <td>{++cle}</td>
+                                            <td className="pt-4">{item.name}</td>
+                                            <td className="pt-4">{item.pseudo}</td>
+                                            <td className="pt-4">{item.email}</td>
+                                            <td className="pt-4">
                                         <button type="button"
                                                 className="btn btn-outline-warning btn-sm waves-effect pt-1"
                                                 data-dismiss="modal" data-toggle="modal"
@@ -45,8 +83,12 @@ const UserList = () => {
                                         </button>
                                     </td>
                                 </tr>
+                                    ))
+                                
+                                } 
                             </tbody>
                         </table>
+                        }
                     </div>
                 </div>
             </div>
