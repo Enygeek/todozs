@@ -18,7 +18,7 @@ const Sidebar = () => {
                         <ul className="metismenu list-unstyled" id="side-menu">
                             {/* Tableau de bord */}
                             <li>
-                                <Link to="/" className="waves-effect">
+                                <Link to="/" className="waves-effect active">
                                     <i className="mdi mdi-view-dashboard"></i>
                                     <span>Tableau de bord</span>
                                 </Link>
@@ -38,7 +38,14 @@ const Sidebar = () => {
                             <li>
                                 <Link to="/TagsManagement" className="waves-effect">
                                     <i className="mdi mdi-tag-multiple"></i>
-                                    <span>Gestion des tag</span>
+                                    <span>Gestion des tags</span>
+                                </Link>
+                            </li>
+
+                            <li>
+                                <Link to="/TicketsManagement" className="waves-effect active">
+                                    <i className="mdi mdi-tag-multiple"></i>
+                                    <span>Gestion des tickets</span>
                                 </Link>
                             </li>
 
