@@ -40,13 +40,12 @@ const TagsList = () => {
                                             data-dismiss="modal" data-toggle="modal"
                                             data-target=".bs-example-modal-lg"
                                             title="Modifier le #tag">
-                                        <i className={"dripicons-pencil mr-2"}></i>Modifier
+                                        <i className={"dripicons-pencil mr-2"}></i>
                                     </button>
                                     <button type="button"
                                             className="btn btn-danger btn-sm waves-effect pt-1 ml-2"
                                             id="sa-params">
                                         <i className={"dripicons-trash mr-2"}></i>
-                                        Supprimer
                                     </button>
                                 </td>
                             </tr>
