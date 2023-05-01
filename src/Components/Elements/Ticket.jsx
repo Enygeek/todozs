@@ -92,16 +92,18 @@ const Ticket = () => {
 
                         {
                             list.map((item, cle) => (
-                                <blockquote className="card-bodyquote mb-2">
+                                <blockquote className="card card-bodyquote mb-2">
                                     <div className={"card-header"}>
                                         {/* Date */}
                                         <span className="float-right"> <i
                                             className={"dripicons-calendar mr-2 mt-2"}></i> 30.04.2023</span>
                                         {/* Checkbox & Sujet */}
-                                        <div className="form-check">
+                                        <div className="">
+                                            {/*
                                             <input className="form-check-input mr-2" type="checkbox" value=""
                                                    id="defaultCheck2"/>
-                                            <label className="text-muted text-uppercase font-weight-bold ml-1"
+                                            */}
+                                            <label className="text-muted text-uppercase font-weight-bold ml-0"
                                                    htmlFor="defaultCheck2">
                                                 {item.sujet}
                                             </label>
@@ -109,10 +111,10 @@ const Ticket = () => {
                                     </div>
 
                                     {/* Description */}
-                                    <p className={"mt-1"}>{item.description}</p>
+                                    <p className={"mt-2 px-3"}>{item.description}</p>
 
 
-                                    <footer className="blockquote-footer" id="accordion">
+                                    <footer className="blockquote-footer px-3" id="accordion">
                                         {/* Statut */}
                                         <span className="badge badge-warning font-size-12 float-right">
                                     en attente
