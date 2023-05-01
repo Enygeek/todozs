@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 
 /**
@@ -6,6 +6,93 @@ import React from 'react';
  *     Composant retournant la liste des tags sous forme de tableau.
  * */
 const TicketList = () => {
+
+    const initial = {
+        sujet: '',
+        description : '',
+        statut : ''
+    }
+
+    let mounted = false
+
+    const [data, setdata] = useState({... initial})
+    const [loading, setLoading] = useState(true)
+    const [list, setList] = useState([])
+    const [erreur, setErreur] = useState(false)
+
+    {/**
+     * @Description
+     *      Récupérer la liste des tickets.
+     * */}
+    const getTicket = () => {
+        fetch('http://localhost:8080/ticket/',
+            {method: 'GET'})
+            .then(response => response.json())
+            .then(response => {
+                setList(response)
+                setLoading(false)
+            })
+            .catch(err => console.log('ticket', err))
+    }
+
+    {/**
+     * @Description
+     *      Récupérer la liste des utilisateurs.
+     * */}
+    const getUsers = () => {
+
+        fetch('http://localhost:8080/user/',
+            {method: 'GET'})
+
+            .then(response => response.json())
+
+            .then(response => {
+
+                setList(response)
+
+                setLoading(false)
+
+            })
+            .catch(err => console.log('user', err))
+    }
+
+    const deleteTicket = ticket => {
+        fetch('http://localhost:8080/ticket/'+ticket.idTicket, {
+            method: 'DELETE'
+        })
+            .then(() => {
+                getTicket()
+                setErreur(false)
+            })
+            .catch(err => console.log('del', err))
+    }
+
+    const updateTicket = ticket => {
+        fetch('http://localhost:8080/ticket/', {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: data.idTicket,
+                name: data.name,
+                pseudo : data.pseudo,
+                email: data.email
+            })
+        })
+            .then(() => {
+                getUsers()
+                setdata({...initial})
+            })
+            .catch(err => console.log('update', err))
+    }
+
+    useEffect(() => {
+        if (!mounted) getTicket();
+        return () => mounted = true
+    }, []);
+
+
     return (
         <>
             {/* Liste des utilisateurs */}
@@ -24,8 +111,6 @@ const TicketList = () => {
                                 <th>N°</th>
                                 <th>Sujet</th>
                                 <th>Description</th>
-                                <th>Crée le</th>
-                                <th>Assigné à</th>
                                 <th>Statut</th>
                                 <th>Action</th>
                             </tr>
@@ -33,28 +118,33 @@ const TicketList = () => {
 
 
                             <tbody>
-                            <tr>
-                                <td className="pt-4">1</td>
-                                <td className="pt-4">Management</td>
-                                <td className="pt-4">Tag relative au managemnt</td>
-                                <td className="pt-4">30.04.2023</td>
-                                <td className="pt-4">Enygeek</td>
-                                <td className="pt-4"><span className={"badge badge-warning font-size-12"}>En cours</span></td>
-                                <td className="pt-4">
-                                    <button type="button"
-                                            className="btn btn-outline-warning btn-sm waves-effect pt-1"
-                                            data-dismiss="modal" data-toggle="modal"
-                                            data-target=".bs-example-modal-lg"
-                                            title="Modifier le #tag">
-                                        <i className={"dripicons-pencil mr-2"}></i>
-                                    </button>
-                                    <button type="button"
-                                            className="btn btn-danger btn-sm waves-effect pt-1 ml-2"
-                                            id="sa-params">
-                                        <i className={"dripicons-trash mr-2"}></i>
-                                    </button>
-                                </td>
-                            </tr>
+                            {
+                                list.map((item, cle) => (
+                                    <tr key={cle}>
+                                        <td>{++cle}</td>
+                                        <td className="pt-4">{item.sujet}</td>
+                                        <td className="pt-4">{item.description}</td>
+                                        <td className="pt-4"><span className={"badge badge-warning font-size-12"}>{item.statut}</span></td>
+                                        <td className="pt-4">
+                                            <button type="button"
+                                                    className="btn btn-outline-warning btn-sm waves-effect pt-1"
+                                                    data-dismiss="modal" data-toggle="modal"
+                                                    data-target=".bs-example-modal-lg"
+                                                    title="Modifier le #tag"
+                                                    onClick={() => updateTicket(item)}>
+                                                <i className={"dripicons-pencil"}></i>
+                                            </button>
+                                            <button type="button"
+                                                    className="btn btn-danger btn-sm waves-effect pt-1 ml-2"
+                                                    id="sa-params"
+                                                    onClick={() => deleteTicket(item)}>
+                                                <i className={"dripicons-trash"}></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))
+
+                            }
                             </tbody>
                         </table>
                     </div>

@@ -107,14 +107,13 @@ const UserList = () => {
                                                 data-target=".bs-example-modal-lg"
                                                 title="Modifier le #tag"
                                                 onClick={() => updateUser(item)}>
-                                            <i className={"dripicons-pencil mr-2"}></i>Modifier
+                                            <i className={"dripicons-pencil"}></i>
                                         </button>
                                         <button type="button"
                                                 className="btn btn-danger btn-sm waves-effect pt-1 ml-2"
                                                 id="sa-params"
                                                 onClick={() => deleteUser(item)}>
-                                            <i className={"dripicons-trash mr-2"}></i>
-                                            Supprimer
+                                            <i className={"dripicons-trash"}></i>
                                         </button>
                                     </td>
                                 </tr>

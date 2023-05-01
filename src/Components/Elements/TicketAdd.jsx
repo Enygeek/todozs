@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 const TicketAdd = () => {
 
+    const [users, setUsers] = useState([]);
+    const [tags, setTags] = useState([]);
+
     const initial = {
         sujet: '',
         description : '',
@@ -15,7 +18,7 @@ const TicketAdd = () => {
     const [list, setList] = useState([])
 
     const getTicket = () => {
-        fetch('http://localhost:8080/ticket/', 
+        fetch('http://localhost:8080/ticket/',
         {method: 'GET'})
         .then(response => response.json())
         .then(response => {
@@ -23,6 +26,33 @@ const TicketAdd = () => {
         setLoading(false)
         })
         .catch(err => console.log('user', err))
+    }
+
+    {/**
+     * @Description
+     *      Récupérer la liste des utilisateurs.
+     * */}
+    const getTags = () => {
+        fetch('http://localhost:8080/tag/',
+            {method: 'GET'})
+            .then(response => response.json())
+            .then(response => {
+                setTags(response)
+            })
+            .catch(err => console.log('tag', err))
+    }
+
+    {/**
+     * @Description  Récupérer  la liste des tags.
+     */}
+    const getUsers = () => {
+        fetch('http://localhost:8080/user/',
+            {method: 'GET'})
+            .then(response => response.json())
+            .then(response => {
+                setUsers(response)
+            })
+            .catch(err => console.log('user', err))
     }
 
     const addTicket = e =>{
@@ -41,8 +71,13 @@ const TicketAdd = () => {
     .catch(err => console.log('add', err));
     }
 
+
     useEffect(() => {
-        if (!mounted) getTicket();
+        if (!mounted) {
+            getTicket();
+            getUsers();
+            getTags();
+        }
         return () => mounted = true
     }, []);
 
@@ -86,20 +121,22 @@ const TicketAdd = () => {
                                                     </div>
 
                                                     <div className="col-md-4 mb-3">
-                                                        <label htmlFor="">Assignée à </label>
-                                                        <select className="custom-select" required>
+                                                        <label htmlFor="users-select">Assignée à </label>
+                                                        <select className="custom-select" required id="users-select">
                                                             <option value="" disabled>Choisir un exécutant</option>
-                                                            <option value="1">Ange-Maurel Serou</option>
-                                                            <option value="2">Enoch Zabra</option>
+                                                            {users.map(user => (
+                                                                <option key={user.id} value={user.id}>{user.name}</option>
+                                                            ))}
                                                         </select>
                                                     </div>
 
                                                     <div className="col-md-4 mb-3">
-                                                        <label htmlFor="tags">Tags</label>
-                                                        <select className="custom-select">
-                                                            <option value="" disabled>Coisr un tags</option>
-                                                            <option value="1">Opération</option>
-                                                            <option value="2">Facture</option>
+                                                        <label htmlFor="users-select">Tag</label>
+                                                        <select className="custom-select" required id="users-select">
+                                                            <option value="" disabled>Choisir un tag</option>
+                                                            {tags.map(tag => (
+                                                                <option key={tag.id} value={tag.id}>{tag.name}</option>
+                                                            ))}
                                                         </select>
                                                     </div>
 
@@ -107,9 +144,9 @@ const TicketAdd = () => {
                                                         <label htmlFor="tags">Statut</label>
                                                         <select className="custom-select">
                                                             <option value="" disabled>Choisir statut</option>
-                                                            <option value="2">En cours</option>
-                                                            <option value="2">Terminé</option>
-                                                            <option value="2">Fermé</option>
+                                                            <option value="2" className={"text-warning"}>En cours</option>
+                                                            <option value="2" className={"text-success"}>Terminé</option>
+                                                            <option value="2" className={"text-danger"}>Fermé</option>
                                                         </select>
                                                     </div>
 
