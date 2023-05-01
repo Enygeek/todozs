@@ -4,6 +4,10 @@ const TicketAdd = () => {
 
     const [users, setUsers] = useState([]);
     const [tags, setTags] = useState([]);
+    const [selectedValue, setSelectedValue] = useState('');
+    const handleChange = (event) => {
+        setSelectedValue(event.target.value);
+    }
 
     const initial = {
         sujet: '',
@@ -19,13 +23,13 @@ const TicketAdd = () => {
 
     const getTicket = () => {
         fetch('http://localhost:8080/ticket/',
-        {method: 'GET'})
-        .then(response => response.json())
-        .then(response => {
-        setList(response)
-        setLoading(false)
-        })
-        .catch(err => console.log('user', err))
+            {method: 'GET'})
+            .then(response => response.json())
+            .then(response => {
+                setList(response)
+                setLoading(false)
+            })
+            .catch(err => console.log('user', err))
     }
 
     {/**
@@ -56,7 +60,6 @@ const TicketAdd = () => {
     }
 
     const addTicket = e =>{
-        e.prevenDefault();
         fetch('http://localhost:8080/ticket/', {
         method: 'POST',
         headers: {
@@ -134,19 +137,23 @@ const TicketAdd = () => {
                                                         <label htmlFor="users-select">Tag</label>
                                                         <select className="custom-select" required id="users-select">
                                                             <option value="" disabled>Choisir un tag</option>
-                                                            {tags.map(tag => (
-                                                                <option key={tag.id} value={tag.id}>{tag.name}</option>
-                                                            ))}
+                                                            {
+                                                                tags.map((item,cle) => (
+                                                                    <option key={cle} value={item.id}>
+                                                                        {item.libelle}
+                                                                    </option>
+                                                                ))
+                                                            }
                                                         </select>
                                                     </div>
 
                                                     <div className="col-md-4 mb-3">
                                                         <label htmlFor="tags">Statut</label>
-                                                        <select className="custom-select">
+                                                        <select className="custom-select" value={data.statut} onChange={(e) => setdata({...data, statut: e.target.value})}>
                                                             <option value="" disabled>Choisir statut</option>
-                                                            <option value="2" className={"text-warning"}>En cours</option>
-                                                            <option value="2" className={"text-success"}>Terminé</option>
-                                                            <option value="2" className={"text-danger"}>Fermé</option>
+                                                            <option value={"En cours"} className={"text-warning"}>En cours</option>
+                                                            <option value={"Terminé"} className={"text-success"}>Terminé</option>
+                                                            <option value={"Fermé"} className={"text-danger"}>Fermé</option>
                                                         </select>
                                                     </div>
 
@@ -166,11 +173,11 @@ const TicketAdd = () => {
                                                                 <i className="mdi mdi-delete-outline"></i>
                                                             </button>
 
-                                                            <button className="btn btn-primary btn-sm font-size-16 ml-2"
+                                                            <button className="btn btn-success btn-sm font-size-16 ml-2"
                                                                     type="submit" data-toggle="tooltip"
                                                                     data-placement="top"
                                                                     data-original-title="Enregistrer la catégorie">
-                                                                <i className="mdi mdi-send-check mr-1"></i>
+                                                                <i className="fa fa-check mr-1"></i>
                                                                 <span className="mr-1">| Enregistrer</span>
                                                             </button>
                                                         </div>
