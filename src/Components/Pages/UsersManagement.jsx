@@ -1,8 +1,7 @@
 import React from 'react';
 import Base from "../General/Base";
 import Footer from "../General/Footer";
-import UserList from "../Elements/UsersList";
-import UserAdd from "../Elements/UserAdd";
+import UsersCrud from "../Elements/Users";
 
 const UsersManagement = () => {
     return (
@@ -50,8 +49,9 @@ const UsersManagement = () => {
                         {/* end row */}
 
                         <div className="row">
-                            <UserAdd/>
-                            <UserList />
+
+                            <UsersCrud />
+
                             {/* end col */}
                         </div>
                         {/* end row */}
