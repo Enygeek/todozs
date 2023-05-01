@@ -1,8 +1,7 @@
 import React from 'react';
 import Base from "../General/Base";
 import Footer from "../General/Footer";
-import TicketAdd from "../Elements/TicketAdd";
-import TicketList from "../Elements/TicketList";
+import Tickets from "../Elements/Tickets";
 
 
 const TagsManagement = () => {
@@ -52,8 +51,7 @@ const TagsManagement = () => {
                         {/* end row */}
 
                         <div className="row">
-                            <TicketAdd/>
-                            <TicketList />
+                            <Tickets />
                             {/* end col */}
                         </div>
                         {/* end row */}
