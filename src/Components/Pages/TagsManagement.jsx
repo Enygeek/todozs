@@ -1,7 +1,6 @@
 import React from 'react';
 import Base from "../General/Base";
 import Footer from "../General/Footer";
-import TagAdd from "../Elements/TagAdd";
 import TagsList from "../Elements/TagsList";
 
 
@@ -51,7 +50,6 @@ const TagsManagement = () => {
                         {/* end row */}
 
                         <div className="row">
-                            <TagAdd/>
                             <TagsList />
                             {/* end col */}
                         </div>

@@ -57,7 +57,7 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="media">
                                             <div className="media-body text-center">
-                                                <h5 className="font-size-14 text-uppercase">Utilisateur</h5>
+                                                <h5 className="font-size-14 text-uppercase">Utilisateurs</h5>
                                             </div>
                                         </div>
                                         <h3 className="m-0 align-self-center text-center text-success">08</h3>
@@ -138,6 +138,13 @@ const Home = () => {
                                                     </div>
                                                     <div className="tab-pane fade" id="v-pills-profile" role="tabpanel"
                                                          aria-labelledby="v-pills-profile-tab">
+
+                                                        {/*
+                                                        { ticket.statut == "Terminé" ? (
+                                                            <Ticket />
+                                                        ) : null}
+                                                        */}
+
                                                         <p>Ticket 2</p>
                                                     </div>
                                                     <div className="tab-pane fade" id="v-pills-messages" role="tabpanel"

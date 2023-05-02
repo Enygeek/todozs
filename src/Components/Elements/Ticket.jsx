@@ -2,6 +2,18 @@ import React, {useEffect, useState} from 'react';
 
 const Ticket = () => {
 
+    const [comments, setComments] = useState([]);
+    const [newComment, setNewComment] = useState('');
+
+    const handleCommentChange = (event) => {
+        setNewComment(event.target.value);
+    };
+
+    const handleCommentSubmit = () => {
+        setComments([...comments, newComment]);
+        setNewComment('');
+    };
+
     const initial = {
         sujet: '',
         description : '',
@@ -116,26 +128,26 @@ const Ticket = () => {
 
                                     <footer className="blockquote-footer px-3" id="accordion">
                                         {/* Statut */}
-                                        <span className="badge badge-warning font-size-12 float-right">
-                                    en attente
-                                </span>
+                                        <span className={item.statut === "Terminé" ? "badge badge-success font-size-12 float-right" : item.statut === 'en attente' ? 'badge badge-warning font-size-12 float-right' : "badge badge-danger font-size-12 float-right"}>
+                                                {item.statut}
+                                        </span>
 
                                         <i className={"dripicons-user"}></i>
                                         <span className={"font-weight-bold ml-1"}> à </span> :
                                         <cite title="Source Title"> </cite>
 
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
-                                           aria-expanded="true" aria-controls="collapseOne" className="text-muted mr-3">
+                                        <a data-toggle="collapse" data-parent="#accordion" href={`#collapse-${item.id}`}
+                                           aria-expanded="true" aria-controls={`collapse-${item.id}`} className="text-muted mr-3" id={`item-${item.id}-commentaires`}>
                                             <i className={"dripicons-message ml-3 mr-2"}></i>
                                             <span className={"font-weight-bold"}> Commentaires</span>
                                         </a>
                                     </footer>
 
                                     {/* Accordion - Comment*/}
-                                    <div id="accordion mt-1">
+                                    <div id="mt-1">
                                         <div className="card mt-2 mb-0">
-                                            <div id="collapseOne" className="collapse"
-                                                 aria-labelledby="headingOne" data-parent="#accordion">
+                                            <div id={`collapse-${item.id}`} className="collapse"
+                                                 aria-labelledby={`item-${item.id}-commentaires`} data-parent="#accordion">
                                                 <div className="card-body">
                                                     <div className="coment-bottom bg-white p-2 px-2">
                                                         <div className="d-flex flex-row add-comment-section mt-1 mb-1">
@@ -152,13 +164,13 @@ const Ticket = () => {
 
                                                     <ul>
                                                         <li className="media">
-                                                    <span className="round">
-                                                        <img className="rounded-circle header-profile-user mr-3"
-                                                             src="../assets/images/users/avatar-1.jpg"
-                                                             alt="Header Avatar"/>
-                                                    </span>
+                                                            <span className="round">
+                                                                <img className="rounded-circle header-profile-user mr-3"
+                                                                     src="../assets/images/users/avatar-1.jpg"
+                                                                     alt="Header Avatar"/>
+                                                            </span>
                                                             <div className="media-body">
-                                                                <h6 className="user">Leo Aminoff</h6>
+                                                                <h6 className="user">Utilisateur</h6>
                                                                 <p className="text">Bought your "Palace of
                                                                     Versailles"</p>
                                                             </div>
