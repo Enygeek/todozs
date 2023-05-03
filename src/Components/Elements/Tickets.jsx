@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 
 /**
  * @Description
- *     Composant retournant la liste des tags sous forme de tableau.
+ *     Composant retournant le formulaire d'ajout des tags et la liste des tags sous forme de tableau.
  * */
 const Tickets = () => {
 
