@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Base from "../General/Base";
 import Footer from "../General/Footer";
 import Ticket from "../Elements/Ticket";
@@ -10,6 +10,84 @@ import {Link} from "react-router-dom";
  *     Composant retournant la page d'accueil présentée sous forme d'un tableau de bord.
  * */
 const Home = () => {
+
+    let mounted = false
+
+    const [loading, setLoading] = useState(true)
+    const [users, setUsers] = useState([])
+    const [tickets, setTickets] = useState([])
+    const [comments, setComments] = useState([])
+    const [tags, setTags] = useState([])
+
+
+    {/**
+     * @Description
+     *      Récupérer la liste des commentaires.
+     * */}
+    const getComments = () => {
+        fetch('http://localhost:8080/comment',
+            {method: 'GET'})
+            .then(response => response.json())
+            .then(response => {
+                setComments(response)
+                setLoading(false)
+            })
+            .catch(err => console.log('subject', err))
+    }
+    {/**
+     * @Description
+     *      Récupérer la liste des utilisateurs.
+     * */}
+    const getUsers = () => {
+        fetch('http://localhost:8080/user/',
+            {method: 'GET'})
+            .then(response => response.json())
+            .then(response => {
+                setUsers(response)
+                setLoading(false)
+            })
+            .catch(err => console.log('user', err))
+    }
+
+    {/**
+     * @Description Récupérer la liste des tags.
+     * */}
+    const getTags = () => {
+        fetch('http://localhost:8080/tag/',
+            {method: 'GET'})
+            .then(response => response.json())
+            .then(response => {
+                setTags(response)
+                setLoading(false)
+            })
+            .catch(err => console.log('subject', err))
+    }
+
+    {/**
+     * @Description Récupérer la liste des tickets.
+     * */}
+    const getTicket = () => {
+        fetch('http://localhost:8080/ticket/',
+            {method: 'GET'})
+            .then(response => response.json())
+            .then(response => {
+                setTickets(response)
+                setLoading(false)
+            })
+            .catch(err => console.log('ticket', err))
+    }
+
+    useEffect(() => {
+        if (!mounted) {
+            getUsers()
+            getComments()
+            getTags()
+            getTicket()
+        }
+        return () => mounted = true
+    }, [])
+
+
     return (
         <>
             <Base />
@@ -47,7 +125,7 @@ const Home = () => {
                                                 <h5 className="font-size-14 text-uppercase">Tickets</h5>
                                             </div>
                                         </div>
-                                        <h2 className="m-0 align-self-center text-center text-danger">183</h2>
+                                        <h2 className="m-0 align-self-center text-center text-danger">{tickets.length}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +138,7 @@ const Home = () => {
                                                 <h5 className="font-size-14 text-uppercase">Utilisateurs</h5>
                                             </div>
                                         </div>
-                                        <h3 className="m-0 align-self-center text-center text-success">08</h3>
+                                        <h3 className="m-0 align-self-center text-center text-success">{users.length}</h3>
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +151,7 @@ const Home = () => {
                                                 <h5 className="font-size-14 text-center text-uppercase">Tags</h5>
                                             </div>
                                         </div>
-                                        <h3 className="m-0 align-self-center text-center text-warning">03</h3>
+                                        <h3 className="m-0 align-self-center text-center text-warning">{tags.length}</h3>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +164,7 @@ const Home = () => {
                                                 <h5 className="font-size-14 text-center text-uppercase">Commentaires</h5>
                                             </div>
                                         </div>
-                                        <h3 className="m-0 align-self-center text-center text-info">28</h3>
+                                        <h3 className="m-0 align-self-center text-center text-info">{comments.length}</h3>
                                     </div>
                                 </div>
                             </div>
